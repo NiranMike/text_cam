@@ -19,8 +19,8 @@ const Header = () => {
                 </div>
                 <div>
                     <ul className=' flex justify-between gap-9 items-center'>
-                        <li>About</li>
-                        <li>Contact Us</li>
+                        <li className='cursor-pointer'>About</li>
+                        <li className='cursor-pointer'>Contact Us</li>
                     </ul>
                 </div>
           </div>  
