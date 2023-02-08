@@ -1,11 +1,16 @@
 import React from 'react'
 import { Inter } from '@next/font/google';
+import { motion } from "framer-motion"
 
 const inter = Inter({ subsets: ['latin'] });
 
 const Contact: React.FC = () => {
   return (
-      <div className='h-screen relative space-y-20 '>
+    <motion.div
+      initial={{ opacity:0}}
+      whileInView={{opacity: 1}}
+      transition={{ duration: 2.5 }}
+      className='h-screen relative space-y-20 '>
         <h1 className={`text-gray-500 text-center text-xl tracking-[12px]  md:tracking-[20px]  font-bold ${inter.className}`}>CONTACT US</h1>
           <div className=' flex flex-col px-6 sm:px-[40px] md:px-[150px] lg:px-[250px] xl:px-[350px] '>
               <div className=' flex justify-center gap-3 flex-col'>
@@ -14,7 +19,7 @@ const Contact: React.FC = () => {
               </div>
               
           </div>
-      </div>
+      </motion.div>
   )
 }
 
