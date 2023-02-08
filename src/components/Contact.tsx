@@ -10,7 +10,7 @@ const Contact: React.FC = () => {
           <div className=' flex flex-col px-6 sm:px-[40px] md:px-[150px] lg:px-[250px] xl:px-[350px] '>
               <div className=' flex justify-center gap-3 flex-col'>
                   <input type="text" className='bg-gray-500 outline-none p-3 rounded-md' placeholder='Enter Name here' />
-                  <textarea className='bg-gray-500 rounded-md outline-none px-3 p-3' placeholder='Enter Message here' id="" cols="30" rows="10"></textarea>
+                  <textarea className='bg-gray-500 rounded-md outline-none px-3 p-3' placeholder='Enter Message here' id="" cols={30} rows={10}></textarea>
               </div>
               
           </div>

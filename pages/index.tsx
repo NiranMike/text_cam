@@ -18,21 +18,21 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <div className='snap-mandatory snap-y'>
         <section id=''>
           <Header />
         </section>
-        <section id='/'>
+        <section className='snap-center' id='/'>
           <Hero />
         </section>
-        <section id='about'>
+        <section className='snap-center' id='about'>
           <About />
         </section>
-        <section id='contact'>
+        <section className='snap-start' id='contact'>
           <Contact />
         </section>
         
-      </main>
+      </div>
     </>
   )
 }
