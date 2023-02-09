@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ['latin'] })
 const Header = () => {
   return (
       <div className=" relative z-10">
-          <div className={`fixed py-6 px-6 top-0 left-0 right-0  text-white flex justify-between items-center ${inter.className}`}>
+          <div className={`static py-6 px-6 top-0 left-0 right-0  text-white flex justify-between items-center ${inter.className}`}>
               <Link href={'/'} className="">
                     <Image
                         src={logo}

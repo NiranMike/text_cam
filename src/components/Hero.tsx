@@ -41,9 +41,11 @@ const Hero: React.FC = () => {
           restDelta: 0.001
         }
       }} data-text="TEXT CAM" ref={textRef} className={`text-white relative hero-text font-bold text-[50px] sm:text-[60px] md:text-[95px] lg:text-[150px] xl:text-[180px] 2xl:text-[250px] ${inter.className}`}>TEXT CAM</motion.h1>
-          <motion.button whileHover={{ scale: 1.1 }}
+          <Link href={'/ConversionPage'}>
+            <motion.button whileHover={{ scale: 1.1 }}
         transition={{ type: "spring", stiffness: 400, damping: 10 }}
         className='border hover:bg-white hover:text-black rounded-full btn px-5 py-3 text-white font-bold'>Try Now</motion.button>
+          </Link>
       <Link href={'#about'} className=''>
         <motion.div whileTap={{ scale: 0.9 }}
                 whileHover={{ scale: 1.2 }}

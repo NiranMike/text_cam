@@ -6,22 +6,14 @@ import Header from '@/src/components/Header'
 import Hero from '@/src/components/Hero'
 import About from '@/src/components/About'
 import Contact from '@/src/components/Contact'
-import {motion,useScroll,
-  useSpring,
-  useTransform,
-  MotionValue} from "framer-motion"
+import HomePage from "./HomePage"
+import {motion} from "framer-motion"
 import { useRef } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-  function useParallax(value: MotionValue<number>, distance: number) {
-      return useTransform(value, [0, 1], [-distance, distance]);
-  }
   
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref });
-  const y = useParallax(scrollYProgress, 300);
 
   return (
     <motion.div className='h-screen overflow-y-scroll snap-mandatory snap-y'>
@@ -32,16 +24,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div >
-        <section className='snap-start' id='/'>
-          <Hero />
-        </section>
-        <section className='snap-start' id='about'>
-          <About />
-        </section>
-        <section className='snap-start' id='contact'>
-          <Contact />
-        </section>
-        
+        <HomePage />
       </div>
     </motion.div>
   )
