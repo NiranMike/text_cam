@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@next/font": "13.1.6",
+    "@tensorflow-models/coco-ssd": "^2.2.2",
+    "@tensorflow-models/mobilenet": "^2.1.0",
     "@tensorflow/tfjs": "^4.2.0",
     "@types/node": "18.11.19",
     "@types/react": "18.0.27",
