@@ -1,31 +1,57 @@
-import React, { useState, useEffect, useRef } from 'react'
-import Contact from '@/src/components/Contact'
+import React, { useState, useEffect, useRef, useCallback } from 'react'
+import { createWorker } from "tesseract.js";
+import { motion } from 'framer-motion';
 import * as tf from '@tensorflow/tfjs';
-import * as cocoSsd from '@tensorflow-models/coco-ssd';
-import {recognize} from "tesseract.js"
-
+import { models } from '@tensorflow/tfjs';
+const m = require("../public/lite-model_keras-ocr_float16_2.tflite")
 interface Props {}
 
 const ConversionPage: React.FC<Props> = () => {
-  const [recognizedText, setRecognizedText] = React.useState<string>('');
-  const [imageUrl, setImageUrl] = React.useState<string>('');
+  
   const [loading, setLoading] = React.useState<boolean>(false);
+  const [selectedImage, setSelectedImage] = useState<File | null >(null)
+  const [textResult, setTextResult] = useState<string>("");
 
-  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setImageUrl(URL.createObjectURL(event.target.files![0]));
-  };
+  const worker = createWorker();
+  const convertImageToText = useCallback(async () => {
+    if(!selectedImage) return;
+    await (await worker).load();
+    await (await worker).loadLanguage("eng");
+    await (await worker).initialize("eng");
+    const { data } = await (await worker).recognize(selectedImage);
+  },[worker,selectedImage])
 
-  const recognizeText = async () => {
-    setLoading(true);
-    const tesseract = await recognize(imageUrl, 'eng');
-    setRecognizedText(tesseract.data.text);
-    setLoading(false);
-    console.log(recognizedText)
-  };
+  const changeImageButton = (e: React.ChangeEvent<HTMLInputElement> | null) => {
+    if (e && e.target.files && e.target.files[0]) {
+      setSelectedImage(e.target.files[0]);
+    } else {
+      setSelectedImage(null);
+      setTextResult("");
+    }
+  }
+
 
   return (
-    <div>
-      <h1 className='text-white'>OCR Text Recognition</h1>
+    <div className='text-black bg-white h-screen'>
+      <div className='bg-white flex mx-auto w-full justify-center items-center h-screen my-auto'>
+        <motion.input 
+        type="file"
+        id="upload"
+        accept="image"
+        onChange={changeImageButton}
+        placeholder={"Upload Image"} whileHover={{ scale: 1.1 }}
+        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+        className='border absolute file:border-none file:z-[-1] file:bg-transparent bg-black hover:bg-black  hover:text-white rounded-full btn px-5 py-3 text-white font-bold' />
+      </div>
+      
+    </div>
+    
+    
+  );
+}
+
+{/* <div className='text-black bg-white h-screen'>
+      <h1 className='text-black bg-white'>OCR Text Recognition</h1>
       <label htmlFor="input">File</label>
       <input id='input' className='text-white' type="file" onChange={handleImageChange} />
       <button className='p-3 bg-white' onClick={recognizeText} disabled={loading}>
@@ -35,8 +61,6 @@ const ConversionPage: React.FC<Props> = () => {
       {recognizedText && (
         <textarea id='textarea' className='text-white' value={recognizedText} readOnly={true} />
       )}
-    </div>
-  );
-}
+    </div> */}
 
 export default ConversionPage
