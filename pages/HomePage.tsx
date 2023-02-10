@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Hero from '@/src/components/Hero'
 import About from '@/src/components/About'
 import Contact from '@/src/components/Contact'
-import * as tf from '@tensorflow/tfjs'
 
 interface Props {}
 
 const HomePage: React.FC<Props> = () => {
 
   return (
-    <div>
+    <div className='h-screen overflow-y-scroll scrollbar-thin md:scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80  overflow-hidden snap-mandatory snap-y z-0'>
       <section className='snap-start' id='/'>
           <Hero />
         </section>

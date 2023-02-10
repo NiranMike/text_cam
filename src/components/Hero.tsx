@@ -1,11 +1,7 @@
 import React, { useEffect, useRef } from 'react'
-import { animateScroll as scroll } from "react-scroll";
 import { Inter } from '@next/font/google';
 import { BsArrowDownCircle } from "react-icons/bs"
-import {motion,useScroll,
-  useSpring,
-  useTransform,
-  MotionValue} from "framer-motion"
+import {motion} from "framer-motion"
 import Link from 'next/link';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -25,7 +21,7 @@ const Hero: React.FC = () => {
     
   
   return (
-    <div className='mx-auto relative flex-col gap-6 flex justify-center items-center h-screen my-auto'>
+    <div className='mx-auto overflow-y-hidden relative flex-col gap-6 flex justify-center items-center h-screen my-auto'>
       <motion.h1
         initial={{ opacity: 0, scale: 0.5 }}
       animate={{ opacity: 1, scale: 1 }}
