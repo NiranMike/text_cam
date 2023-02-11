@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react'
+import React, { useState, useEffect, useRef, useCallback, CSSProperties } from 'react'
 import { createWorker } from "tesseract.js";
 import { motion } from 'framer-motion';
 import Image from 'next/image'
@@ -21,7 +21,6 @@ const ConversionPage: React.FC<Props> = () => {
   const [textResult, setTextResult] = useState<string>("");
 
     const worker = createWorker();
-
     const changeImageButton = (e: React.ChangeEvent<HTMLInputElement> | null) => {
     if (e && e.target.files && e.target.files[0]) {
     setLoading(true)
@@ -34,7 +33,6 @@ const ConversionPage: React.FC<Props> = () => {
 
     const convertImageToText = useCallback(async () => {
       if (!selectedImage) return;
-      
       await (await worker).load()
       await (await worker).loadLanguage("eng");
       await (await worker).initialize("eng");
@@ -70,7 +68,7 @@ const ConversionPage: React.FC<Props> = () => {
       
       {!loading ? (
         <div className='md:mx-[100px] rounded-lg px-[100px] py-12 flex justify-between bg-[#1E1E1E]'>
-          <textarea cols={40}  id='textarea' className={`text-white scrollbar-thin md:scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#28272A]  overflow-hidden outline-none rounded-lg px-9 py-4 ${inter.className} bg-[#2B2D2E]`} value={textResult} readOnly={true} />
+          <div id='textarea' className={`text-white scrollbar-thin md:scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#28272A]  overflow-hidden outline-none rounded-lg px-9 py-4 ${inter.className} bg-[#2B2D2E]`} >{textResult}</div>
           <div className='rounded-lg h-[260px] border-none'>
             <Image
               className='bg-[#2B2D2E] object-cover h-full rounded-lg'
@@ -97,18 +95,5 @@ const ConversionPage: React.FC<Props> = () => {
   );
 }
 
-
-{/* <div className='text-black bg-white h-screen'>
-      <h1 className='text-black bg-white'>OCR Text Recognition</h1>
-      <label htmlFor="input">File</label>
-      <input id='input' className='text-white' type="file" onChange={handleImageChange} />
-      <button className='p-3 bg-white' onClick={recognizeText} disabled={loading}>
-        {loading ? 'Recognizing...' : 'Recognize Text'}
-      </button>
-      <label htmlFor="textarea">Message</label>
-      {recognizedText && (
-        <textarea id='textarea' className='text-white' value={recognizedText} readOnly={true} />
-      )}
-    </div> */}
 
 export default ConversionPage
