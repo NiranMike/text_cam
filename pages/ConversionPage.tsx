@@ -77,7 +77,8 @@ const ConversionPage: React.FC<Props> = () => {
             />
           </div>
       </div>
-      ):(
+      ) : (
+          
         <div className='md:mx-[100px] rounded-lg px-[100px] py-12 flex justify-between bg-[#1E1E1E]'>
          <SyncLoader 
          cssOverride={override}
