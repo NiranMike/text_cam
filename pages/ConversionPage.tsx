@@ -46,7 +46,6 @@ const ConversionPage: React.FC<Props> = () => {
   }, [selectedImage, convertImageToText]);
   const src = selectedImage ? URL.createObjectURL(selectedImage) : '';
 
-
   return (
     <div className='text-black bg-[#28272A] h-screen overflow-hidden'>
       <div className='bg-[#28272A] py-[80px] flex mx-auto justify-center w-full items-center'>
@@ -65,7 +64,6 @@ const ConversionPage: React.FC<Props> = () => {
           transition={{ type: "spring", stiffness: 400, damping: 10 }}
           className='border-transparent hidden sticky file:border-none file:z-[-1] file:bg-transparent bg-black hover:bg-black  hover:text-white rounded-full btn px-5 py-3 text-white font-bold' />
       </div>
-      
       {!loading ? (
         <div className='md:mx-[100px] rounded-lg px-[100px] py-12 flex justify-between bg-[#1E1E1E]'>
           <div id='textarea' className={`text-white scrollbar-thin md:scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#28272A]  overflow-hidden outline-none rounded-lg px-9 py-4 ${inter.className} bg-[#2B2D2E]`} >{textResult}</div>
@@ -90,7 +88,6 @@ const ConversionPage: React.FC<Props> = () => {
       </div>
       )
     }
-      
     </div>
   );
 }
