@@ -47,7 +47,7 @@ const ConversionPage: React.FC<Props> = () => {
   const src = selectedImage ? URL.createObjectURL(selectedImage) : '';
 
   return (
-    <div className='text-black bg-[#28272A] h-screen overflow-hidden'>
+    <div className='text-black bg-[#28272A] h-screen'>
       <div className='bg-[#28272A] py-[80px] flex mx-auto justify-center w-full items-center'>
         <motion.label htmlFor="img" 
          className={`border-transparent cursor-pointer sticky file:border-none file:z-[-1] file:bg-transparent bg-black hover:bg-black ${inter.className}  hover:text-white rounded-full btn px-5 py-3 text-white font-bold`}
@@ -65,13 +65,13 @@ const ConversionPage: React.FC<Props> = () => {
           className='border-transparent hidden sticky file:border-none file:z-[-1] file:bg-transparent bg-black hover:bg-black  hover:text-white rounded-full btn px-5 py-3 text-white font-bold' />
       </div>
       {!loading ? (
-        <div className='md:mx-[100px] rounded-lg px-[100px] py-12 flex justify-between bg-[#1E1E1E]'>
-          <div id='textarea' className={`text-white scrollbar-thin md:scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#28272A]  overflow-hidden outline-none rounded-lg px-9 py-4 ${inter.className} bg-[#2B2D2E]`} >{textResult}</div>
-          <div className='rounded-lg h-[260px] border-none'>
+        <div className='md:mx-[100px] rounded-lg gap-8 px-5 md:px-[100px] py-12 flex flex-col md:flex-row justify-between bg-[#1E1E1E]'>
+          <div id='textarea' className={`text-white h-[200px] md:h-[260px] scrollbar-thin md:scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#28272A]  overflow-hidden outline-none rounded-lg  py-4 ${inter.className} bg-[#2B2D2E]`} >{textResult}</div>
+          <div className='rounded-lg h-[200px] md:h-[260px] border-none'>
             <Image
               className='bg-[#2B2D2E] object-cover h-full rounded-lg'
               src={src}
-              alt={'image'}
+              alt="Image"
               height={130}
               width={450}
             />
