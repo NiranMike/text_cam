@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
     
   
   return (
-    <div className='mx-auto overflow-y-hidden relative flex-col gap-6 flex justify-center items-center h-screen my-auto'>
+    <div className='mx-auto overflow-y-hidden relative flex-col gap-14 md:gap-6 flex justify-center items-center h-screen my-auto'>
       <motion.h1
         initial={{ opacity: 0, scale: 0.5 }}
       animate={{ opacity: 1, scale: 1 }}
