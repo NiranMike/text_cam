@@ -51,7 +51,7 @@ const ConversionPage: React.FC<Props> = () => {
 
   return (
     <div className='text-black px- bg-[#ffffff] pb-12 h-screen'>
-      <div className='bg-[#ffffff]  py-[80px] flex justify-center w-full items-center'>
+      <div className='bg-[#ffffff]  py-[40px] flex justify-center w-full items-center'>
         <motion.label htmlFor="img" 
          className={`border-transparent cursor-pointer sticky file:border-none file:z-[-1] file:bg-transparent bg-black hover:bg-black ${inter.className}  hover:text-white rounded-full btn px-5 py-3 text-white font-bold`}
          whileHover={{ scale: 1.1 }}

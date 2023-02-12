@@ -9,7 +9,7 @@ const Contact: React.FC = () => {
     <motion.div
       initial={{ opacity:0}}
       whileInView={{opacity: 1}}
-      transition={{ duration: 2.5 }}
+      transition={{ duration: 1 }}
       className='h-screen relative space-y-20 '>
         <h1 className={`text-gray-500 text-center text-xl tracking-[12px]  md:tracking-[20px]  font-bold ${inter.className}`}>CONTACT US</h1>
           <div className=' flex flex-col px-6 sm:px-[40px] md:px-[150px] lg:px-[250px] xl:px-[350px] '>

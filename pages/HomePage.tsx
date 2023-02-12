@@ -8,7 +8,7 @@ interface Props {}
 const HomePage: React.FC<Props> = () => {
 
   return (
-    <div className='h-screen overflow-y-scroll scrollbar-thin md:scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#28272A]  overflow-hidden snap-mandatory snap-y z-0'>
+    <div className='h-screen  snap-mandatory snap-y z-10'>
       <section className='snap-start' id='/'>
           <Hero />
         </section>
