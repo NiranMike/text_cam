@@ -68,8 +68,8 @@ const ConversionPage: React.FC<Props> = () => {
           className='border-transparent hidden sticky file:border-none file:z-[-1] file:bg-transparent bg-black hover:bg-black  hover:text-white rounded-full btn px-5 py-3 text-white font-bold' />
       </div>
       {!loading ? (
-        <div className='md:mx-5 mx-auto rounded-lg gap-8 px-5 md:px-[100px] py-16 grid sm:grid-cols-2 justify-center bg-[#000000]'>
-          <textarea id='textarea' rows={4} cols={50} className={`text-white h-[200px] md:h-[260px] scrollbar-thin md:scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#28272A] overflow-hidden outline-none rounded-lg  py-4 ${inter.className} bg-[#2B2D2E]`} readOnly={true} value={textResult} />
+        <div className='md:mx-5  mx-auto rounded-lg gap-8 px-5 md:px-[100px] py-16 grid sm:grid-cols-2 justify-center bg-[#000000]'>
+          <textarea id='textarea' rows={4} cols={50} className={`text-white px-4 h-[200px] md:h-[260px] scrollbar-thin md:scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#28272A] overflow-hidden outline-none rounded-lg  py-4 ${inter.className} bg-[#2B2D2E]`} readOnly={true} value={textResult} />
           <div className='rounded-lg h-[200px] md:h-[260px] border-none'>
             <Image
               className='bg-[#2B2D2E] w-full object-cover h-full rounded-lg'
