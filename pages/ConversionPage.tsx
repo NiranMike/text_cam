@@ -67,12 +67,13 @@ const ConversionPage: React.FC<Props> = () => {
           transition={{ type: "spring", stiffness: 400, damping: 10 }}
           className='border-transparent hidden sticky file:border-none file:z-[-1] file:bg-transparent bg-black hover:bg-black  hover:text-white rounded-full btn px-5 py-3 text-white font-bold' />
       </div>
+      <p className={`bg-white text-center my-4 font-bold ${inter.className}`}>WARNING: Make sure you upload a clear image so I can scan out the words rightly and i am only able to out words not images or emojis</p>
       {!loading ? (
         <div className='md:mx-5  mx-auto rounded-lg gap-8 px-5 md:px-[100px] py-16 grid sm:grid-cols-2 justify-center bg-[#000000]'>
           <textarea id='textarea' rows={4} cols={50} className={`text-white px-4 h-[200px] md:h-[260px] scrollbar-thin md:scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#28272A] overflow-hidden outline-none rounded-lg  py-4 ${inter.className} bg-[#2B2D2E]`} readOnly={true} value={textResult} />
           <div className='rounded-lg h-[200px] md:h-[260px] border-none'>
             <Image
-              className='bg-[#2B2D2E] w-full object-cover h-full rounded-lg'
+              className={`bg-[#2B2D2E] w-full object-cover h-full rounded-lg ${inter.className}`}
               src={src}
               alt="Image"
               height={0}
@@ -97,9 +98,12 @@ const ConversionPage: React.FC<Props> = () => {
         onCopy={()=> textResult && setCopied(true)}
         >
           <div className=' bg-white flex justify-center mx-auto px-6 py-9'>
-            <button className=' py-4 px-4 rounded-md text-white bg-black'>
+          <motion.button 
+            whileHover={{ scale: 1.1 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            className={` py-3 px-5 rounded-full text-white bg-black ${inter.className}`}>
               {copied ? <span>Copied</span> : <span>Copy Text</span>}
-            </button>
+            </motion.button>
           </div>
         
       </CopyToClipboard>
