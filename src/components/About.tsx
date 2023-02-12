@@ -9,14 +9,14 @@ const About = () => {
     <div 
       className={`md:mx-[100px] mx-6 relative h-screen  ${inter.className}`}>
           <div className=''>
-              <h1 className={`text-gray-500 text-center text-xl tracking-[12px]  md:tracking-[20px]  font-bold ${inter.className}`}>ABOUT US</h1>
+              <h1 className={`text-gray-500 pt-10 text-center text-xl tracking-[12px]  md:tracking-[20px]  font-bold ${inter.className}`}>ABOUT US</h1>
           </div>
       <motion.div
         initial={{ opacity:0}}
         whileInView={{opacity: 1}}
         transition={{ duration: 2.5 }}
-        className='my-auto flex flex-col justify-center h-full '>
-              <p className={`text-gray-500 text-center ${inter.className} text-lg md:text-2xl `}>We are a team of technology enthusiasts and problem solvers dedicated to making it easier for people to extract text from images and scanned documents. Our text OCR web app uses cutting-edge optical character recognition technology to accurately and efficiently convert images to editable text.</p>
+        className='my-auto flex flex-col pt-[160px] h-full '>
+        <p className={`text-gray-500 text-sm text-center ${inter.className} text-lg md:text-2xl `}>Welcome to our text recognition website! We are dedicated to providing top-notch text recognition services to individuals, businesses, and organizations across the world. Our goal is to simplify the process of extracting text from images</p>
           </motion.div>
     </div>
   )

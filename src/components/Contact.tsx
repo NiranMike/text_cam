@@ -16,6 +16,12 @@ const Contact: React.FC = () => {
               <div className=' flex justify-center gap-3 flex-col'>
                   <input type="text" className='bg-gray-500 outline-none p-3 rounded-md' placeholder='Enter Name here' />
                   <textarea className='bg-gray-500 rounded-md outline-none px-3 p-3' placeholder='Enter Message here' id="" cols={30} rows={10}></textarea>
+                  <div className=' flex justify-center mx-auto'>
+                    <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }} 
+                    className={` rounded-full py-4 px-16 bg-white ${inter.className}`}>Submit</motion.button>
+                  </div>
               </div>
               
           </div>
