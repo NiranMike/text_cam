@@ -7,7 +7,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <div className='h-screen overflow-y-scroll
 scrollbar-thin md:scrollbar
 scrollbar-track-gray-400/20
-scrollbar-thumb-[#7b4fd1] overflow-hidden   z-10'>
+scrollbar-thumb-[#ffffff] overflow-hidden   z-10'>
       <Header />
       <Component {...pageProps} />
     </div>
