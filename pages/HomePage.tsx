@@ -8,7 +8,7 @@ interface Props {}
 const HomePage: React.FC<Props> = () => {
 
   return (
-    <div className='h-screen  snap-mandatory snap-y z-10'>
+    <div className='h-screen snap-mandatory snap-y z-10'>
       <section className='snap-start' id='/'>
           <Hero />
         </section>
