@@ -6,6 +6,7 @@ import ProgressBar from "@badrap/bar-of-progress";
 import Router from 'next/router';
 import svr from "../src/assets/images/serverDown.svg"
 import { ErrorBoundary, FallbackProps } from 'react-error-boundary'
+import ErrorPage from './_error';
 
 const progress = new ProgressBar({
   size: 6,
@@ -32,9 +33,10 @@ const progress = new ProgressBar({
     )
   }
 
-Router.events.on("routeChangeStart", progress.start);
-Router.events.on("routeChangeComplete", progress.finish);
+  Router.events.on("routeChangeStart", progress.start);
+  Router.events.on("routeChangeComplete", progress.finish);
 Router.events.on("routeChangeError", progress.finish);
+  
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <ErrorBoundary FallbackComponent={ErrorFallBack}>

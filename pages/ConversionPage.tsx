@@ -18,6 +18,7 @@ const override: CSSProperties = {
 const ConversionPage: React.FC<Props> = () => {
   
   const [loading, setLoading] = React.useState<boolean>(false);
+  const [isError, setIsError] = useState<boolean>(false);
   const [selectedImage, setSelectedImage] = useState<File | null >(null)
   const [textResult, setTextResult] = useState<string>("");
   const [copied, setCopied] = React.useState<boolean>(false);
@@ -34,16 +35,24 @@ const ConversionPage: React.FC<Props> = () => {
       }
     };
 
-    const convertImageToText = useCallback(async () => {
-      if (!selectedImage) return;
-      await (await worker).load()
-      await (await worker).loadLanguage("eng");
-      await (await worker).initialize("eng");
-      const { data } = await (await worker).recognize(selectedImage);
-      setTextResult(data.text);
-      setLoading(false)
+  const convertImageToText = useCallback(async () => {
+      try {
+        if (!selectedImage) return;
+        await (await worker).load()
+        await (await worker).loadLanguage("eng");
+        await (await worker).initialize("eng");
+        const { data } = await (await worker).recognize(selectedImage);
+        setTextResult(data.text);
+        setLoading(false)
+      } catch (error) {
+        setLoading(false)
+        setIsError(true);
+    }
+      if (isError) {
+        throw new Error('Failed to fetch data');
+    }
   }, [worker, selectedImage]);
-    
+
   useEffect(() => {
     convertImageToText();
   }, [selectedImage, convertImageToText]);
