@@ -71,8 +71,8 @@ const ConversionPage: React.FC<Props> = () => {
       <p className={`bg-white text-center  my-4 ${inter.className}`}>1. Cannot scan non-text characters(images,emojis)</p>
       <p className={`bg-white text-center  my-4 ${inter.className}`}>Instruction: Upload a clear and text filled images to get you correct words</p>
       {!loading ? (
-        <div className='md:mx-5  mx-auto rounded-lg gap-8 px-5 md:px-[100px] py-16 grid sm:grid-cols-2 justify-center bg-[#000000]'>
-          <textarea id='textarea' rows={4} cols={50} className={`text-white px-4 h-[200px] md:h-[260px] scrollbar-thin md:scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#28272A] overflow-hidden outline-none rounded-lg  py-4 ${inter.className} bg-[#2B2D2E]`} readOnly={true} value={textResult} />
+        <div className='md:mx-5  mx-auto rounded-lg gap-8 px-5 md:px-[60px] py-16 grid sm:grid-cols-2 justify-center bg-[#000000]'>
+          <textarea id='textarea' rows={4} cols={50} className={`text-white px-4 h-[200px] md:h-[260px] scrollbar-thin md:scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#eeeeee] overflow-hidden outline-none rounded-lg  py-4 ${inter.className} bg-[#2B2D2E]`} readOnly={true} value={textResult} />
           <div className='rounded-lg h-[200px] md:h-[260px] border-none'>
             <Image
               className={`bg-[#2B2D2E] w-full object-cover h-full rounded-lg ${inter.className}`}
