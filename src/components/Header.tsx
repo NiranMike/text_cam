@@ -20,7 +20,7 @@ const Header = () => {
                 </Link>
                 <div>
                     <ul className=' flex justify-between gap-9 items-center'>
-                        <Link href={'/'}><li className={`cursor-pointer ${inter.className}`}>Login</li></Link>
+                        <Link href={'/LoginPage'}><li className={`cursor-pointer ${inter.className}`}>Login</li></Link>
                         <Link href={'/'}><li className={`cursor-pointer ${inter.className}`}>Sign Up</li></Link>
                     </ul>
                 </div>

@@ -16,7 +16,8 @@ function ErrorPage({ statusCode }: { statusCode: number }) {
 }
 
 ErrorPage.getInitialProps = ({ res, err }: NextPageContext) => {
-  const statusCode: number | undefined = res ? res.statusCode : err ? err.statusCode : 500;
+  
+  const statusCode = res ? res.statusCode : err ? err.statusCode : 500;
   return { statusCode };
 };
 

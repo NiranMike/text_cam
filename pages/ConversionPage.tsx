@@ -23,7 +23,8 @@ const ConversionPage: React.FC<Props> = () => {
   const [textResult, setTextResult] = useState<string>("");
   const [copied, setCopied] = React.useState<boolean>(false);
 
-    const worker = createWorker();
+  const worker = createWorker();
+  // this is the button that user clicks on to select image
     const changeImageButton = (e: React.ChangeEvent<HTMLInputElement> | null) => {
       if (e && e.target.files && e.target.files[0]) {
       setCopied(false)
@@ -35,6 +36,7 @@ const ConversionPage: React.FC<Props> = () => {
       }
     };
 
+  // this is button to carry out the ocr operation
   const convertImageToText = useCallback(async () => {
       try {
         if (!selectedImage) return;
