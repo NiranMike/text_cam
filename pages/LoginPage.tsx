@@ -1,8 +1,14 @@
 import React from 'react'
 import { FcGoogle } from "react-icons/fc"
 import {signIn, signOut} from "next-auth/react"
+import { useFirebase } from "../firebase";
 
-const LoginPage:React.FC = () => {
+const LoginPage: React.FC = () => {
+  const { firebaseReady, app, db, storage } = useFirebase();
+  if (!firebaseReady) {
+    return <div>Loading...</div>;
+  }
+  
   return (
       <div className='flex h-screen w-screen items-center justify-center bg-slate-50'>
       <div
