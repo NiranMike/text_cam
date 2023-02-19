@@ -1,12 +1,14 @@
 import '@/styles/globals.css'
 import Image from 'next/image';
-import type { AppProps } from 'next/app'
+import type { AppProps as NextAppProps } from 'next/app'
 import Header from "../src/components/Header"
 import ProgressBar from "@badrap/bar-of-progress";
 import Router from 'next/router';
 import svr from "../src/assets/images/serverDown.svg"
+import {CustomAppProps} from "../src/types/custom-app-props"
 import { ErrorBoundary, FallbackProps } from 'react-error-boundary'
-import ErrorPage from './_error';
+// import ErrorPage from './_error';
+import { SessionProvider } from 'next-auth/react';
 
 const progress = new ProgressBar({
   size: 6,
@@ -35,17 +37,20 @@ const progress = new ProgressBar({
 
   Router.events.on("routeChangeStart", progress.start);
   Router.events.on("routeChangeComplete", progress.finish);
-Router.events.on("routeChangeError", progress.finish);
+  Router.events.on("routeChangeError", progress.finish);
   
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps, session }: CustomAppProps) {
   return (
     <ErrorBoundary FallbackComponent={ErrorFallBack}>
       <div className='h-screen overflow-y-scroll
         scrollbar-thin md:scrollbar
         scrollbar-track-gray-400/20
         scrollbar-thumb-[#dfdcdc] overflow-hidden z-10'>
-        <Header />
-        <Component {...pageProps} />
+        <SessionProvider session={session}>
+          <Header />
+          <Component {...pageProps} />
+        </SessionProvider>
+        
       </div>
     </ErrorBoundary>
     
