@@ -6,6 +6,7 @@ import { Inter } from '@next/font/google';
 import Loader from "@/src/components/Loader"
 import SyncLoader from "react-spinners/SyncLoader";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import { useSession } from 'next-auth/react';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -16,7 +17,7 @@ const override: CSSProperties = {
   margin: "0 auto",
 };
 const ConversionPage: React.FC<Props> = () => {
-  
+  const { data: session, status } = useSession({required: true})
   const [loading, setLoading] = React.useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
   const [selectedImage, setSelectedImage] = useState<File | null >(null)
@@ -125,4 +126,4 @@ const ConversionPage: React.FC<Props> = () => {
 }
 
 
-export default ConversionPage
+export default ConversionPage;

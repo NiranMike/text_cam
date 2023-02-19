@@ -1,14 +1,23 @@
 import React from 'react'
 import { FcGoogle } from "react-icons/fc"
-import {signIn, signOut} from "next-auth/react"
-import { useFirebase } from "../firebase";
+import {getSession, signIn, signOut, useSession} from "next-auth/react"
+import { GetServerSidePropsContext } from 'next';
 
 const LoginPage: React.FC = () => {
-  const { firebaseReady, app, db, storage } = useFirebase();
-  if (!firebaseReady) {
-    return <div>Loading...</div>;
-  }
+  const { data: session, status } = useSession();
+  console.log(session)
   
+  if (status === "authenticated") {
+
+    const image = session.user?.image;
+    return (
+      <div>
+        <p className=' text-white'>Welcome, {session.user?.name}</p>
+        <img className='rounded-full' src={image ?? "default.png"} alt="" />
+        <button className='py-3 px-3 rounded bg-white' onClick={()=> signOut()}>Sign Out</button>
+      </div>
+    )
+  }
   return (
       <div className='flex h-screen w-screen items-center justify-center bg-slate-50'>
       <div
@@ -22,3 +31,17 @@ const LoginPage: React.FC = () => {
 }
 
 export default LoginPage
+
+export const getServerSideProps = async (context: GetServerSidePropsContext) =>{
+  const session = await getSession();
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/ConversionPage"
+      }
+    }
+  }
+  return {
+    props: {session}
+  }
+}
