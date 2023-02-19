@@ -1,11 +1,5 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import { Inter } from '@next/font/google'
-import styles from '@/styles/Home.module.css'
-import Header from '@/src/components/Header'
-import Hero from '@/src/components/Hero'
-import About from '@/src/components/About'
-import Contact from '@/src/components/Contact'
 import HomePage from "./HomePage"
 import {motion} from "framer-motion"
 import { useRef } from 'react'

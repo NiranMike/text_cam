@@ -11,7 +11,7 @@ import { ErrorBoundary, FallbackProps } from 'react-error-boundary'
 import { SessionProvider } from 'next-auth/react';
 
 const progress = new ProgressBar({
-  size: 6,
+  size: 3,
   color: "#FE595E",
   className: "z-50",
   delay: 100,
