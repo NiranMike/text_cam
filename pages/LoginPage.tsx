@@ -8,7 +8,6 @@ const LoginPage: React.FC = () => {
   console.log(session)
   
   if (status === "authenticated") {
-
     const image = session.user?.image;
     return (
       <div>
